@@ -7,8 +7,8 @@ function App() {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<Login />} />
-                <Route path="/onebox" element={<OneBoxScreen />} />
+                <Route path="/ReachInbox-Assignment" element={<Login />} />
+                <Route path="/ReachInbox-Assignment/onebox" element={<OneBoxScreen />} />
             </Routes>
         </Router>
     );
