@@ -9,7 +9,8 @@ const Login = () => {
     const navigate = useNavigate();
 
     const handleGoogleSignIn = () => {
-        const redirectUrl = 'http://localhost:3000';
+        const redirectUrl = 'http://localhost:3000/ReachInbox-Assignment'; // or your deployed app URL
+
         const googleLoginUrl = `https://hiring.reachinbox.xyz/api/v1/auth/google-login?redirect_to=${redirectUrl}`;
 
         window.open(googleLoginUrl, '_self');
@@ -17,7 +18,7 @@ const Login = () => {
 
     const handleLogout = () => {
         localStorage.removeItem('authToken');
-        navigate('/');
+        navigate('/ReachInbox-Assignment');
     };
 
     React.useEffect(() => {
@@ -30,10 +31,10 @@ const Login = () => {
             localStorage.setItem('authToken', token);
 
             // Clear the URL to avoid showing the token in the address bar
-            window.history.replaceState({}, document.title, "/");
+            window.history.replaceState({}, document.title, "/ReachInbox-Assignment");
 
             // Redirect to OneBoxScreen page
-            navigate('/onebox');
+            navigate('/ReachInbox-Assignment/onebox');
         }
     }, [navigate]);
 
