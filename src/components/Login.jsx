@@ -9,7 +9,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     const handleGoogleSignIn = () => {
-        const redirectUrl = 'http://localhost:3000/ReachInbox-Assignment'; // or your deployed app URL
+        const redirectUrl = 'https://deathblade405.github.io/ReachInbox-Assignment/'; // or your deployed app URL
 
         const googleLoginUrl = `https://hiring.reachinbox.xyz/api/v1/auth/google-login?redirect_to=${redirectUrl}`;
 
