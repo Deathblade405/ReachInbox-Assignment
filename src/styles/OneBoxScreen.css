@@ -1,0 +1,522 @@
+/* Color Variables */
+:root {
+    --background-light: #ffffff;
+    --background-dark: #1e1e1e;
+    --text-light: #000000;
+    --text-dark: #ffffff;
+    --sidebar-background-light: #f4f4f4;
+    --sidebar-background-dark: #2c2c2c;
+    --email-list-background-light: #ffffff;
+    --email-list-background-dark: #2c2c2c;
+    --modal-background-light: #ffffff;
+    --modal-background-dark: #333333;
+    --border-color-light: #e0e0e0;
+    --border-color-dark: #444444;
+    --highlight-color: #ab9dfb; 
+    --highlight-hover-color: #000000; 
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+    --background-light: #1e1e1e;
+    --background-dark: #1e1e1e;
+    --text-light: #e0e0e0;
+    --text-dark: #000000;
+    --sidebar-background-light: #2c2c2c;
+    --sidebar-background-dark: #2c2c2c;
+    --email-list-background-light: #2c2c2c;
+    --email-list-background-dark: #2c2c2c;
+    --modal-background-light: #333333;
+    --modal-background-dark: #333333;
+    --border-color-light: #444444;
+    --border-color-dark: #444444;
+}
+
+/* Container for the entire layout */
+.onebox-container {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: 60px 1fr;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--background-light);
+    color: var(--text-light);
+    position: relative; 
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Top Navbar */
+.top-navbar {
+    grid-column: 2 / -1;
+    background-color: var(--background-light);
+    height: 60px;
+    border-bottom: 1px solid var(--border-color-light);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.top-navbar:hover {
+    background-color: var(--highlight-color);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--text-light);
+    transition: color 0.4s ease;
+}
+
+.dark-mode-toggle:hover {
+    color: var(--highlight-color);
+}
+
+/* Sidebar */
+.left-sidebar {
+    background-color: var(--sidebar-background-light);
+    border-right: 1px solid var(--border-color-light);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    grid-row: 1 / -1;
+    align-items: center;
+    position: relative;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.left-sidebar:hover {
+    background-color: var(--highlight-color);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Sidebar Icons */
+.sidebar-icon1, .sidebar-icon2, .sidebar-icon3, .sidebar-icon4 {
+    font-size: 24px;
+    margin: 10px 0;
+    cursor: pointer;
+    color: var(--text-light); 
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Specific icon sizes */
+.sidebar-icon1 {
+    font-size: 40px;
+    margin-top: 10px;
+}
+
+.sidebar-icon2, .sidebar-icon3 {
+    margin-top: 30px;
+}
+
+.sidebar-icon4 {
+    margin-top: auto;
+    margin-bottom: 10px;
+}
+
+/* Hover Effects */
+.sidebar-icon1:hover,
+.sidebar-icon2:hover,
+.sidebar-icon3:hover,
+.sidebar-icon4:hover {
+    color: var(--highlight-hover-color); 
+    transform: scale(1.1);
+}
+
+/* Main Content Area */
+.main-content {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    overflow-y: auto;
+    grid-column: 2; 
+    background-color: var(--background-light);
+    transition: background-color 0.4s ease;
+}
+
+/* Email List */
+.email-list {
+    border-right: 1px solid var(--border-color-light);
+    padding: 10px;
+    width: 300px;
+    background-color: var(--email-list-background-light);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.4s ease;
+}
+
+.email-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.email-list li {
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color-light);
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+.email-list li:hover {
+    background: var(--highlight-color);
+    color: var(--text-dark);
+    transform: scale(1.02);
+}
+
+.email-list li.selected {
+    background: var(--highlight-color);
+    border-left: 4px solid #004080;
+    color: var(--text-dark);
+}
+
+/* Email Details */
+.email-details {
+    flex: 1;
+    padding: 20px;
+    background-color: var(--background-light);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-left: 20px;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.email-details:hover {
+    background-color: var(--highlight-color);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Reply Modal */
+.reply-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.4s ease;
+}
+
+/* Modal Content */
+.reply-modal-content {
+    background-color: var(--modal-background-light);
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.4s ease;
+}
+
+.close-button:hover {
+    color: var(--highlight-color);
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input, textarea {
+    border: 1px solid var(--border-color-light);
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 16px;
+    transition: border-color 0.4s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--highlight-color);
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Editor Actions */
+.editor-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.editor-icon {
+    font-size: 22px;
+    color: var(--highlight-color);
+    cursor: pointer;
+    transition: color 0.4s ease, transform 0.3s ease;
+}
+
+.editor-icon:hover {
+    color: var(--highlight-hover-color);
+    transform: scale(1.1);
+}
+
+/* Send Button */
+button[type="button"] {
+    background-color: var(--highlight-color);
+    border: none;
+    color: #ffffff;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.4s ease, transform 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button[type="button"]:hover {
+    background-color: var(--highlight-hover-color);
+    transform: scale(1.05);
+}
+
+button[type="button"]:active {
+    background-color: #3367d6;
+    transform: scale(0.98);
+}
+
+/* Lead Details */
+.lead-details {
+    margin-top: 20px;
+    border: 1px solid var(--border-color-light);
+    padding: 15px;
+    background-color: var(--background-light);
+    color: #333;
+    width: 280px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.lead-details:hover {
+    background-color: var(--highlight-color);
+    color: var(--text-dark);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Lead Details Headers and Paragraphs */
+.lead-details h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #004080;
+    border-bottom: 1px solid var(--border-color-light);
+    padding-bottom: 5px;
+}
+
+.lead-details p {
+    margin: 10px 0;
+    word-wrap: break-word;
+}
+
+/* Lead Details Specific Info Boxes */
+#lead, #lead1 {
+    padding: 10px;
+    border: 1px solid var(--border-color-light);
+    background-color: #f4f6f8;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Activities Section */
+.activities-section {
+    border: 1px solid var(--border-color-light);
+    border-radius: 8px;
+    background-color: var(--background-light);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    height: 250px;
+    padding: 15px;
+    overflow: hidden;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.activities-section:hover {
+    background-color: var(--highlight-color);
+    color: var(--text-dark);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Activities Section Title and Content */
+.activities-section h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #004080;
+}
+
+.activities-section p {
+    margin: 10px 0;
+    word-wrap: break-word;
+}
+
+/* Light Mode */
+body {
+    background-color: var(--background-light);
+    color: var(--text-light);
+}
+
+.onebox-container {
+    background-color: var(--background-light);
+    color: var(--text-light);
+}
+
+/* Dark Mode Styles */
+[data-theme="dark"] {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .top-navbar,
+[data-theme="dark"] .left-sidebar,
+[data-theme="dark"] .email-list,
+[data-theme="dark"] .email-details,
+[data-theme="dark"] .reply-modal-content,
+[data-theme="dark"] .lead-details,
+[data-theme="dark"] .activities-section {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+}
+
+/* Specific text highlights and colors in dark mode */
+[data-theme="dark"] .highlight-text {
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .email-info strong,
+[data-theme="dark"] .email-actions button {
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .email-reply p,
+[data-theme="dark"] .reply-modal-content form {
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .reply-modal-content {
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .lead-details .details,
+[data-theme="dark"] .details1 {
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .no-email-selected {
+    color: var(--text-light);
+}
+
+/* Button background and border styles */
+[data-theme="dark"] .theme-toggle-button {
+    background-color: #333333;
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .editor-icon {
+    color: var(--text-light);
+}
+
+/* src/styles/ConfirmationModal.css */
+.confirmation-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.confirmation-modal-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px;
+    position: relative;
+}
+
+.confirmation-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-button {
+    font-size: 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.confirmation-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.confirm-button, .cancel-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.confirm-button {
+    background-color: #28a745;
+    color: #ffffff;
+}
+
+.cancel-button {
+    background-color: #dc3545;
+    color: #ffffff;
+}
